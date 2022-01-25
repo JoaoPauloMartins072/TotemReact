@@ -1,0 +1,44 @@
+table{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .teclado {
+    position: absolute;
+    background-color: #5d5ca7;
+    box-shadow: 0px 0px 10px black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .botao-numeros {
+    width: 80px;
+    height: 80px;
+    font-size: 15px;
+    margin: 1px;
+    background-color: #5d5ca7;
+    border-radius: 15px;
+    border-color: white;
+    color: white;
+  }
+  
+  .botao-numeros:hover {
+    background-color: #404072;
+  }
+  
+  .botao-block {
+    width: 80px;
+    height: 80px;
+    font-size: 25px;
+    margin: 1px;
+    background-color: #5d5ca7;
+    border-radius: 15px;
+    border-color: white;
+    color: white;
+  }
+  

@@ -1,0 +1,65 @@
+ h1{
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter";
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#valor{
+  background-color: white;
+  width: 240px;
+  height: 30px;
+  margin: auto;
+  margin-bottom:16px;
+  font-size: 25px;
+  border-radius: 15px;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  padding:5px;
+  overflow-x: hidden
+
+}
+
+
+.botao-pesquisar {
+  width: 252px;
+  height: 80px;
+  font-size: 15px;
+  margin-left: 9px;
+  margin-right: 9px;
+  background-color: #5d5ca7;
+  border-radius: 15px;
+  border-color: white;
+  color: white;
+}
+
+.botao-pesquisar:hover {
+  background-color: #404072;
+}
+
+.botao-limpar {
+  width: 252px;
+  height: 80px;
+  margin: 1px;
+  margin-left: 9px;
+  margin-right: 9px;
+  font-size: 15px;
+  background-color: #5d5ca7;
+  border-radius: 15px;
+  border-color: white;
+  color: white;
+}
+
+
+
+.botao-limpar:hover {
+  background-color: #404072;
+}
+
+
+
