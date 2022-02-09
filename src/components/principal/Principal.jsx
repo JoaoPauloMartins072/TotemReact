@@ -1,14 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 import Numeros from "../numeros/Numeros.jsx";
-import './Principal.css'
+
+import { toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
 
+import './Principal.css'
 
+toast.configure()
 
 export default (props) => {
   
-  const [cpf, setNum] = useState('') //09084945646
+  const navigate = useNavigate();
+  
+  
+  const [cpf, setNum] = useState('09084945646') //09084945646
   
   function clicou(cpfGerado) {
     
@@ -19,40 +27,33 @@ export default (props) => {
 }
 
   function buscarFaturasDoCliente() {
-  
-    
+
       if(cpf === ''){
-       toast.error('CPF/CNPJ está vazio')
         
+       toast.error('CPF/CNPJ está vazio')
+          
+       navigate('/')
+        return
       }
   
       if(cpf.length < 10  ){
         toast.error('CPF/CNPJ não valido');
-        
+        navigate('/')
+        setNum('')
+       return 
       }
-    //   try {
-    //     const resultado =  this.hubsoftService.obterFaturas(this.cpf_cnpj)
-    //     if(resultado.faturas.length === 0){
-    //      this.toast.success('Tudo em dia')
- 
-    //     }else{
-    //       console.log(resultado.faturas)
-    //       this.toast.success('Cpf Valido','Bem Vindo!')
-    //       this.router.navigateByUrl('/boletos', { state: resultado.faturas } )
-    //     }
- 
- 
- 
-    //  } catch (error) {
-    //    console.log(error)
-    //    this.toast.error(error.error.msg)
-    //  }
-  
+
+        navigate('/tela-boletos')
+      
+
+     
+      
+        
   }
 
   return (
-
     <div className="teclado" >
+     
 
       <div className="valor">
 
@@ -67,14 +68,15 @@ export default (props) => {
         <tbody>
           <tr>
             <td>
-              <button className="botao-pesquisar" onClick={() => {buscarFaturasDoCliente()}}>PESQUISAR</button>
+              <button className="botao-pesquisar" onClick={buscarFaturasDoCliente}>PESQUISAR</button>
             </td>
           </tr>
         </tbody>
       </table>
+     
       
-      <ToastContainer />
-      <Numeros onClick={clicou} > </Numeros>
+      <Numeros onClick={clicou} > 
+      </Numeros>
 
       <table>
         <tbody>

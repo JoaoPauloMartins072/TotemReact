@@ -1,0 +1,64 @@
+.tela-boleto {
+    width: 90%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100;
+    height: 400;
+
+}
+.MuiDataGrid-main {
+   background-color: #5d5ca7;
+   border-radius: 10px;
+   border: none;
+   box-shadow: 0px 0px 10px black;
+   color: white;
+}
+
+
+.MuiDataGrid-root {
+    width: 90%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border: 0px !important;
+    height: 400
+}
+
+.MuiDataGrid-footerContainer {
+    display: none !important;
+}
+
+.MuiCheckbox-root {
+    color: white !important;
+}
+
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked {
+    color: rgb(2, 201, 2) !important;
+}
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+    color: yellow !important;
+}
+
+.MuiDataGrid-virtualScroller::-webkit-scrollbar {
+    overflow-y: scroll;
+    background-color: #e64c16;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+  
+}
+.MuiDataGrid-virtualScroller::-webkit-scrollbar-thumb {
+   background-color: white;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+  
+}
