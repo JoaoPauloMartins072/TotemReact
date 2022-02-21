@@ -12,6 +12,7 @@ import { FaturasContext } from "../../providers/faturas.js";
 toast.configure()
 export default function Principal(props) {
 
+
   const navigate = useNavigate();
   const [cpf, setNum] = useState('12581531657') //09084945646 , 12581531657
   const faturas = useContext(FaturasContext)
@@ -35,8 +36,9 @@ export default function Principal(props) {
     toast.success('Buscando suas Faturas')
     const boletos = await ObterFaturas(cpf)
     faturas.setFatura(boletos)
-
-    console.log(boletos)
+    navigate('/tela-boletos', )
+    
+    //console.log(boletos)
     // console.log(boletos[boletos.length-1])
     // console.log(boletos[0].id_fatura)
     // console.log(boletos[0].data_vencimento)
@@ -56,9 +58,6 @@ export default function Principal(props) {
     //   toast.error(error.message)
 
     // }
-
-
-    navigate('/tela-boletos')
 
 
 

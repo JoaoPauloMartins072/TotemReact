@@ -11,7 +11,6 @@ const headers = { "Content-Type": "application/json" };
 
 export function autenticacao(props) {
   
-
   const pegaToken = async () => {
 
     fetch(`${base_url}/oauth/token`, {
@@ -54,8 +53,6 @@ export function autenticacao(props) {
       });
   };
 
-
-
   if (!temToken) {
     pegaToken();
   } else {
@@ -66,11 +63,10 @@ export function autenticacao(props) {
     }
   }
 
+  
 }
 
 const temToken = localStorage.getItem("token");
-
-
 
 export const ObterFaturas = async (cpf) => {
   
@@ -91,12 +87,9 @@ export const ObterFaturas = async (cpf) => {
     .then((response) => {
        fatura = response.faturas
       
-      return fatura
+      
     })
-
-    var boletos = fatura
-   
-    return boletos
+     return fatura
     
   }
 

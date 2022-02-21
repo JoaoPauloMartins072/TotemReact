@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export const FaturasContext = React.createContext({
     faturas: 'teste',
     setFatura: (faturas)=>{}
-    
+
 });
 
 export const FaturasProvider = (props) => {
@@ -13,7 +13,7 @@ export const FaturasProvider = (props) => {
     const faturasContext = {
         faturas,
         setFatura
-        
+
     }
 
     return (
@@ -21,4 +21,4 @@ export const FaturasProvider = (props) => {
             {props.children}
         </FaturasContext.Provider>
     );
-}
+} 
