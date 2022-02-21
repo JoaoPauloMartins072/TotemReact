@@ -1,5 +1,12 @@
+@media (max-width: 880px){
+    .tela-boleto{ 
+        width: 100% !important;
+    }
+   
+
+}
 .tela-boleto {
-    width: 90%;
+    width: 100%;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -20,7 +27,7 @@
 
 
 .MuiDataGrid-root {
-    width: 90%;
+    width: 70%;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -53,9 +60,14 @@
     border: 4px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
-  
+    
+}
+
+.MuiDataGrid-virtualScroller::-webkit-scrollbar-button {
+    width: 0px !important;
 }
 .MuiDataGrid-virtualScroller::-webkit-scrollbar-thumb {
+    
    background-color: white;
   border: 4px solid transparent;
   border-radius: 8px;

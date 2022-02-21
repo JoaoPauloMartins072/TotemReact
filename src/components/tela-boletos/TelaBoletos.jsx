@@ -1,19 +1,29 @@
-import React from "react";
 import './TelaBoletos.css';
+import { React, useContext } from "react";
 import { DataGrid } from '@mui/x-data-grid';
+import { FaturasContext } from "../../providers/faturas";
+import './TelaBoletos.css';
 
-export default (props) => {
-
+export default async (props) => {
     const columns = [
         { field: 'id', headerName: 'Nº Fatura', width: 140 },
-        { field: 'data_vencimento_br', headerName: 'Data Vencimento', width: 140 },
+        { field: 'data_vencimento', headerName: 'Data Vencimento', width: 140 },
         { field: 'valor', headerName: 'Valor R$', width: 140 },
     ];
 
-    const rows = [
-        { id: 1, data_vencimento_br: '10/10/22', valor: 'R$10,00' },
-    ];
+    const { faturas } = useContext(FaturasContext)
 
+    const rows =  await gerandoDados()
+
+     async function gerandoDados() {
+        
+        for await (let [index, fatura] of faturas.entries()) {
+            fatura = ({ id: faturas[index].id_fatura, data_vencimento: faturas[index].data_vencimento, valor: faturas[index].valor }) 
+            return fatura
+        }
+       return []
+    }
+    console.log(rows)
     // Nº Fatura  ... id_fatura
     // Data Vencimento ... data_vencimento_br
     // Valor R$ ... valor

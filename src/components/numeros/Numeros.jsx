@@ -1,4 +1,3 @@
-import React from "react";
 import './Numeros.css'
 
 
@@ -9,8 +8,7 @@ export default function Numeros (props) {
     function inserirNumero(numero) {
         
         props.onClick(numero) 
-        
-        console.log(numero)
+       
         
     }
     
