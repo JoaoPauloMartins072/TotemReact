@@ -6,13 +6,12 @@ import './TelaBoletos.css';
 import { useState } from 'react';
 
 export default (props) => {
-
-
+    
     const { faturas } = useContext(FaturasContext)
-    const [checkbox, setCheckbox] = useState()
+    const [checkbox, setCheckbox] = useState([])
 
     function tabela() {
-        return faturas.map(fatura => fatura = { id: fatura.id_fatura, data_vencimento: fatura.data_vencimento, valor: fatura.valor });
+     return faturas.map(fatura => fatura = { id: fatura.id_fatura, data_vencimento: fatura.data_vencimento, valor: fatura.valor });
     }
 
     const rows = tabela()
@@ -24,33 +23,36 @@ export default (props) => {
     ];
 
     console.log(checkbox)
-    //console.log(selectedIDs)
-    //console.log(selectedRowData)
-  
+
     function imprimir() {
-        if(checkbox.lenght === 0){
+
+        if (checkbox.length === 0) {
             alert('selecione um boleto')
+
             return
         }
         alert('imprimindo')
-        
+
+
     }
 
-    return ( 
+    return (
         <div className="tela-boleto" style={{ height: 400, width: '60%' }}>
-            <DataGrid 
+            <DataGrid
                 rows={rows}
                 columns={columns}
-                checkboxSelection 
+                checkboxSelection
+                //ref={ref} 
                 //onSelectionModelChange={itm => setCheckbox(itm)}
-                onSelectionModelChange={(ids) => {
+                onSelectionModelChange={ids => {
                     const selectedIDs = new Set(ids);
-                    const checkbox = rows.filter((row) => selectedIDs.has(row.id))
-                    console.log(selectedIDs)
-                    console.log(checkbox);
+                    const selectedRowData = rows.filter((row) => selectedIDs.has(row.id),
+                    )
+                    setCheckbox(selectedRowData)
+                    console.log(selectedRowData)
                 }}
-                
-                >
+
+            >
             </DataGrid>
             <button className="botao-imprimir" onClick={imprimir}>Imprimir</button>
         </div >
@@ -58,7 +60,3 @@ export default (props) => {
 
 
 }
-
-
-
-
