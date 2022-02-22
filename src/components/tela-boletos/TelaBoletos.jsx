@@ -3,56 +3,62 @@ import { React, useContext } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import { FaturasContext } from "../../providers/faturas";
 import './TelaBoletos.css';
-
-// for (let fatura of faturas) 
-//     fatura.push([{ id: faturas.id_fatura, data_vencimento: faturas.data_vencimento, valor: faturas.valor }])
-//     console.log(fatura)
-
-// 
-// return []
+import { useState } from 'react';
 
 export default (props) => {
 
-    
+
     const { faturas } = useContext(FaturasContext)
-    console.log(faturas)
-       
+    const [checkbox, setCheckbox] = useState()
+
     function tabela() {
-       
-       
-        // console.log(faturas)
-        // var array = []
-        // for (let i = 0; i <= faturas.length - 1; i++) {
-        //     array.push({ id: faturas[i].id_fatura, data_vencimento: faturas[i].data_vencimento, valor: faturas[i].valor })
-        // }
-        // return array 
-    } 
+        return faturas.map(fatura => fatura = { id: fatura.id_fatura, data_vencimento: fatura.data_vencimento, valor: fatura.valor });
+    }
 
     const rows = tabela()
-    
-   
 
     const columns = [
         { field: 'id', headerName: 'Nº Fatura', width: 140 },
         { field: 'data_vencimento', headerName: 'Data Vencimento', width: 140 },
         { field: 'valor', headerName: 'Valor R$', width: 140 },
     ];
-    
-    
+
+    console.log(checkbox)
+    //console.log(selectedIDs)
+    //console.log(selectedRowData)
+  
+    function imprimir() {
+        if(checkbox.lenght === 0){
+            alert('selecione um boleto')
+            return
+        }
+        alert('imprimindo')
+        
+    }
 
     return ( 
         <div className="tela-boleto" style={{ height: 400, width: '60%' }}>
             <DataGrid 
                 rows={rows}
                 columns={columns}
-                checkboxSelection >
+                checkboxSelection 
+                //onSelectionModelChange={itm => setCheckbox(itm)}
+                onSelectionModelChange={(ids) => {
+                    const selectedIDs = new Set(ids);
+                    const checkbox = rows.filter((row) => selectedIDs.has(row.id))
+                    console.log(selectedIDs)
+                    console.log(checkbox);
+                }}
+                
+                >
             </DataGrid>
-        </div>
+            <button className="botao-imprimir" onClick={imprimir}>Imprimir</button>
+        </div >
     )
-    
-    
+
+
 }
-   
+
 
 
 

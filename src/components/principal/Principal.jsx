@@ -38,6 +38,7 @@ export default function Principal(props) {
     faturas.setFatura(boletos)
     navigate('/tela-boletos')
     
+    
     //console.log(boletos)
     // console.log(boletos[boletos.length-1])
     // console.log(boletos[0].id_fatura)
