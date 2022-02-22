@@ -2,13 +2,17 @@ import './TelaBoletos.css';
 import { React, useContext } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import { FaturasContext } from "../../providers/faturas";
+import { useNavigate } from 'react-router-dom';
 import './TelaBoletos.css';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 export default (props) => {
-    
+
+    const navigate = useNavigate();
     const { faturas } = useContext(FaturasContext)
     const [checkbox, setCheckbox] = useState([])
+    var Boleto = require('./node-boleto').Boleto
 
     function tabela() {
      return faturas.map(fatura => fatura = { id: fatura.id_fatura, data_vencimento: fatura.data_vencimento, valor: fatura.valor });
@@ -25,14 +29,17 @@ export default (props) => {
     console.log(checkbox)
 
     function imprimir() {
+        
+        var boleto = new Boleto({
 
+        })
         if (checkbox.length === 0) {
             alert('selecione um boleto')
-
             return
         }
         alert('imprimindo')
-
+        
+        //navigate('/')
 
     }
 
