@@ -36,7 +36,7 @@ export default function Principal(props) {
     toast.success('Buscando suas Faturas')
     const boletos = await ObterFaturas(cpf)
     faturas.setFatura(boletos)
-    navigate('/tela-boletos', )
+    navigate('/tela-boletos')
     
     //console.log(boletos)
     // console.log(boletos[boletos.length-1])

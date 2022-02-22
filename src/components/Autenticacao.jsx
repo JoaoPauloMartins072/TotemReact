@@ -86,8 +86,7 @@ export const ObterFaturas = async (cpf) => {
     .then((response) => response.json())
     .then((response) => {
        fatura = response.faturas
-      
-      
+
     })
      return fatura
     
