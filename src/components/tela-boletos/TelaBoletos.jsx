@@ -6,9 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import './TelaBoletos.css';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import { Bancos, Boletos, streamToPromise } from '../../../gerar-boletos/lib'
 
 export default (props) => {
-    const { Bancos, Boletos, streamToPromise } = require('../../../gerar-boletos-master/lib');
+    //const { Bancos, Boletos, streamToPromise } = require('../../../gerar-boletos-master/lib');
     const navigate = useNavigate();
     const { faturas } = useContext(FaturasContext)
     const [boleto, setBoleto] = useState([])
