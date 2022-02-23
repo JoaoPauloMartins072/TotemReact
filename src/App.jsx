@@ -11,6 +11,7 @@ import { autenticacao } from './components/Autenticacao';
 
 
 
+
 export default function App() {
   
   useEffect(() => {autenticacao()},[]);

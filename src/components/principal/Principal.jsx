@@ -12,16 +12,14 @@ import { FaturasContext } from "../../providers/faturas.js";
 toast.configure()
 export default function Principal(props) {
 
-
   const navigate = useNavigate();
   const [cpf, setNum] = useState('12581531657') //09084945646 , 12581531657
   const faturas = useContext(FaturasContext)
 
-
   function clicou(cpfGerado) {
     setNum(previousValue => previousValue + cpfGerado)
-
   }
+
   async function buscarFaturasDoCliente() {
     if (cpf === '') {
       toast.error('CPF/CNPJ está vazio')
@@ -37,8 +35,7 @@ export default function Principal(props) {
     const boletos = await ObterFaturas(cpf)
     faturas.setFatura(boletos)
     navigate('/tela-boletos')
-    
-    
+
     //console.log(boletos)
     // console.log(boletos[boletos.length-1])
     // console.log(boletos[0].id_fatura)
@@ -59,13 +56,7 @@ export default function Principal(props) {
     //   toast.error(error.message)
 
     // }
-
-
-
   }
-
-
-
 
   return (
     <div className="teclado" >

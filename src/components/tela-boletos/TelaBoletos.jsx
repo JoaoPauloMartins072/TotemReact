@@ -8,14 +8,14 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
 export default (props) => {
-
+    const { Bancos, Boletos, streamToPromise } = require('../../../gerar-boletos-master/lib');
     const navigate = useNavigate();
     const { faturas } = useContext(FaturasContext)
-    const [checkbox, setCheckbox] = useState([])
-    var Boleto = require('./node-boleto').Boleto
+    const [boleto, setBoleto] = useState([])
+
 
     function tabela() {
-     return faturas.map(fatura => fatura = { id: fatura.id_fatura, data_vencimento: fatura.data_vencimento, valor: fatura.valor });
+        return faturas.map(fatura => fatura = { id: fatura.id_fatura, data_vencimento: fatura.data_vencimento, valor: fatura.valor });
     }
 
     const rows = tabela()
@@ -26,19 +26,25 @@ export default (props) => {
         { field: 'valor', headerName: 'Valor R$', width: 140 },
     ];
 
-    console.log(checkbox)
+    console.log(boleto)
 
     function imprimir() {
-        
-        var boleto = new Boleto({
 
-        })
-        if (checkbox.length === 0) {
+        if (boleto.length === 0) {
             alert('selecione um boleto')
             return
         }
         alert('imprimindo')
-        
+
+        const novoBoleto = new Boletos(boleto);
+        novoBoleto.gerarBoleto();
+
+        novoBoleto.pdfFile('C:\\Users\\SAC\\Downloads\\boletos').then(async ({ stream }) => {
+            // ctx.res.set('Content-type', 'application/pdf');	
+            await streamToPromise(stream);
+        }).catch((error) => {
+            return error;
+        });
         //navigate('/')
 
     }
@@ -55,7 +61,7 @@ export default (props) => {
                     const selectedIDs = new Set(ids);
                     const selectedRowData = rows.filter((row) => selectedIDs.has(row.id),
                     )
-                    setCheckbox(selectedRowData)
+                    setBoleto(selectedRowData)
                     console.log(selectedRowData)
                 }}
 
