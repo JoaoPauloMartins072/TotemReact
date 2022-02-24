@@ -1,11 +1,17 @@
 const base_url = "https://api.sempre.hubsoft.com.br";
 const data = {
-  grant_type: process.env.GRANT_TYPE,
-  client_id: process.env.CLIENT_ID,
-  client_secret: process.env.CLIENT_SECRET ,
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
-  encrypted: process.env.ENCRYPTED,
+  // grant_type: process.env.GRANT_TYPE,
+  // client_id: process.env.CLIENT_ID,
+  // client_secret: process.env.CLIENT_SECRET ,
+  // username: process.env.USERNAME,
+  // password: process.env.PASSWORD,
+  // encrypted: process.env.ENCRYPTED,
+  grant_type: "password",
+  client_id: "2",
+  client_secret: "password",
+  username: "joao.ferreira@sempre.net.br",
+  password: "Mude@senha1",
+  encrypted: false,
 };
 console.log(data)
 const headers = { "Content-Type": "application/json" };
