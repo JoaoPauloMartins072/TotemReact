@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Numeros from "../numeros/Numeros.jsx";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import './Principal.css'
-import  { ObterFaturas }  from '../../components/Autenticacao'
+import { ObterFaturas } from '../../components/Autenticacao'
 import { FaturasContext } from "../../providers/faturas.js";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'
 
 
 
@@ -13,7 +13,7 @@ toast.configure()
 export default function Principal(props) {
 
   const navigate = useNavigate();
-  const [cpf, setNum] = useState('12581531657') //09084945646 , 12581531657
+  const [cpf, setNum] = useState('12581531657') //09084945646 , 12581531657, 09823056641
   const faturas = useContext(FaturasContext)
 
   function clicou(cpfGerado) {
@@ -33,8 +33,18 @@ export default function Principal(props) {
     }
     toast.success('Buscando suas Faturas')
     const boletos = await ObterFaturas(cpf)
+    if (boletos.length === 0) {
+      toast.success('Não há faturas, tudo em dia!');
+      navigate('/')
+      setNum('')
+      return      
+    }
     faturas.setFatura(boletos)
     navigate('/tela-boletos')
+    toast.success('Olá escolha seu boleto clicando neles !')
+
+
+
 
     //console.log(boletos)
     // console.log(boletos[boletos.length-1])
