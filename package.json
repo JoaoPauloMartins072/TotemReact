@@ -2,6 +2,9 @@
   "name": "totem-react",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -17,6 +20,7 @@
     "axios": "^0.26.0",
     "babel-preset-react": "^6.24.1",
     "buffer": "^6.0.3",
+    "dotenv": "^16.0.0",
     "gerar-boletos": "^1.4.5",
     "npm-windows-upgrade": "^6.0.1",
     "react": "^17.0.2",

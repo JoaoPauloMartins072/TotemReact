@@ -1,12 +1,13 @@
 const base_url = "https://api.sempre.hubsoft.com.br";
 const data = {
-  grant_type: "password",
-  client_id: "2",
-  client_secret: "...",
-  username: "...",
-  password: "...",
-  encrypted: false,
+  grant_type: process.env.GRANT_TYPE,
+  client_id: process.env.CLIENT_ID,
+  client_secret: process.env.CLIENT_SECRET ,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  encrypted: process.env.ENCRYPTED,
 };
+console.log(data)
 const headers = { "Content-Type": "application/json" };
 
 export function autenticacao(props) {
