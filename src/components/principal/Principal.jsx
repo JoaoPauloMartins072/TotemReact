@@ -4,12 +4,8 @@ import Numeros from "../numeros/Numeros.jsx";
 import './Principal.css'
 import { ObterFaturas } from '../../components/Autenticacao'
 import { FaturasContext } from "../../providers/faturas.js";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css'
+import toast, { Toaster } from 'react-hot-toast';
 
-
-
-toast.configure()
 export default function Principal(props) {
 
   const navigate = useNavigate();
@@ -37,39 +33,25 @@ export default function Principal(props) {
       toast.success('Não há faturas, tudo em dia!');
       navigate('/')
       setNum('')
-      return      
+      return
     }
     faturas.setFatura(boletos)
     navigate('/tela-boletos')
     toast.success('Olá escolha seu boleto clicando neles !')
 
-
-
-
-    //console.log(boletos)
-    // console.log(boletos[boletos.length-1])
-    // console.log(boletos[0].id_fatura)
-    // console.log(boletos[0].data_vencimento)
-    // console.log(boletos[0].valor)
-    // try {
-
-    //   if (0 === 0) {
-    //     toast.success('Não há debitos, tudo em dia')
-    //   } else {
-    //     console.log()
-    //   }
-    //   toast.success('Bem Vindo ao Totem da Sempre');
-    //   navigate('/tela-boletos')
-    //   setNum('')
-
-    // } catch (error) {
-    //   toast.error(error.message)
-
-    // }
   }
 
   return (
+
     <div className="teclado" >
+      <Toaster
+          containerStyle={{
+            position: 'relative',
+            left: 350,
+            top: 0,
+           
+          }}
+      />
       <div className="valor">
         <h1>Digite seu CPF ou CNPJ</h1>
         <p id="valor" maxLength="14">{cpf}</p>
