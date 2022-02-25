@@ -14,7 +14,7 @@ const data = {
   password: "Mude@senha1",
   encrypted: false,
 };
-console.log(data)
+
 const headers = { "Content-Type": "application/json" };
 
 export function autenticacao(props) {
@@ -74,7 +74,7 @@ export function autenticacao(props) {
 }
 
 const temToken = localStorage.getItem("token");
-console.log(temToken)
+
 
 export const ObterFaturas = async (cpf) => {
   
