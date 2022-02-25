@@ -69,11 +69,11 @@ export function autenticacao(props) {
       pegaToken();
     }
   }
-
   
 }
 
 const temToken = localStorage.getItem("token");
+console.log(temToken)
 
 export const ObterFaturas = async (cpf) => {
   
