@@ -12,6 +12,9 @@ const data = {
 	"client_secret": "U9ae1su9o9lFD2pVzlk5yV0LUhsZMYkVA0iJHAz9",
 	"username": "joao.ferreira@sempre.net.br",
 	"password": "Mude@senha1",
+	"client_secret": "...",
+	"username": "...",
+	"password": "...",
 	"encrypted": false
 };
 
