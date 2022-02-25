@@ -7,12 +7,12 @@ const data = {
   // username: process.env.USERNAME,
   // password: process.env.PASSWORD,
   // encrypted: process.env.ENCRYPTED,
-  grant_type: "password",
-  client_id: "2",
-  client_secret: "password",
-  username: "joao.ferreira@sempre.net.br",
-  password: "Mude@senha1",
-  encrypted: false,
+  "grant_type": "password",
+	"client_id": "2",
+	"client_secret": "U9ae1su9o9lFD2pVzlk5yV0LUhsZMYkVA0iJHAz9",
+	"username": "joao.ferreira@sempre.net.br",
+	"password": "Mude@senha1",
+	"encrypted": false
 };
 
 const headers = { "Content-Type": "application/json" };
