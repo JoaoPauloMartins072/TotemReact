@@ -10,11 +10,8 @@ const data = {
   "grant_type": "password",
 	"client_id": "2",
 	"client_secret": "U9ae1su9o9lFD2pVzlk5yV0LUhsZMYkVA0iJHAz9",
-	"username": "joao.ferreira@sempre.net.br",
-	"password": "Mude@senha1",
-	"client_secret": "...",
-	"username": "...",
-	"password": "...",
+	"username": "totem@sempre.net.br",
+	"password": "SW7mp$myM6Jqo@zQ",
 	"encrypted": false
 };
 
