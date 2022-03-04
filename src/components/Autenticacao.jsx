@@ -1,27 +1,27 @@
 const base_url = "https://api.sempre.hubsoft.com.br";
 const data = {
-  
-  // grant_type: process.env.GRANT_TYPE,
-  // client_id: process.env.CLIENT_ID,
-  // client_secret: process.env.CLIENT_SECRET ,
-  // username: process.env.USERNAME,
-  // password: process.env.PASSWORD,
-  // encrypted: process.env.ENCRYPTED,
-  "grant_type": "password",
-	"client_id": "2",
-	"client_secret": "U9ae1su9o9lFD2pVzlk5yV0LUhsZMYkVA0iJHAz9",
-	"username": "joao.ferreira@sempre.net.br",
-	"password": "Mude@senha1",
-	"client_secret": "...",
-	"username": "...",
-	"password": "...",
-	"encrypted": false
+
+  grant_type: process.env.GRANT_TYPE,
+  client_id: process.env.CLIENT_ID,
+  client_secret: process.env.CLIENT_SECRET,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  encrypted: process.env.ENCRYPTED,
+  // "grant_type": "password",
+  // "client_id": "2",
+  // "client_secret": "U9ae1su9o9lFD2pVzlk5yV0LUhsZMYkVA0iJHAz9",
+  // "username": "joao.ferreira@sempre.net.br",
+  // "password": "Mude@senha1",
+  // "client_secret": "...",
+  // "username": "...",
+  // "password": "...",
+  // "encrypted": false
 };
 
 const headers = { "Content-Type": "application/json" };
 
 export function autenticacao(props) {
-  
+
   const pegaToken = async () => {
 
     fetch(`${base_url}/oauth/token`, {
@@ -73,18 +73,18 @@ export function autenticacao(props) {
       pegaToken();
     }
   }
-  
+
 }
 
 const temToken = localStorage.getItem("token");
 
 
 export const ObterFaturas = async (cpf) => {
-  
-  var fatura 
-  
+
+  var fatura
+
   await fetch(
-    
+
     `${base_url}/api/v1/integracao/cliente/financeiro?busca=cpf_cnpj&termo_busca=${cpf}`,
     {
       method: "GET",
@@ -96,12 +96,12 @@ export const ObterFaturas = async (cpf) => {
   )
     .then((response) => response.json())
     .then((response) => {
-       fatura = response.faturas
+      fatura = response.faturas
 
     })
-     return fatura
-    
-  }
+  return fatura
+
+}
 
 
 
